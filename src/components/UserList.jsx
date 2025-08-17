@@ -1,7 +1,17 @@
 import React, { useState } from "react";
 
-function UserList({users}) {
-  
+function UserList({users,changeStatus}) {
+  function onClick(user){
+    let updatedUser = {...user}
+    if (user.status == "Online"){
+        updatedUser.status = "Offline"
+    }
+    else{
+        updatedUser.status = "Online"
+    }
+    changeStatus(updatedUser)
+    console.log(updatedUser)
+  }
   
   return (
     <ul>
